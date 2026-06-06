@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { CARHIRE } from "@/constants/testIds";
 
 export default function Contact() {
@@ -19,32 +19,23 @@ export default function Contact() {
 
           <div className="mt-8 space-y-4">
             <a
-              href="tel:+27744634514"
-              data-testid={CARHIRE.contactPhone}
-              className="flex items-center gap-4 group"
-            >
-              <div className="h-12 w-12 rounded-xl bg-[#F2EBE1] border border-[#E5DCD0] grid place-items-center text-[#B65F33] group-hover:bg-[#B65F33] group-hover:text-[#F9F6F0] transition-colors">
-                <Phone className="h-5 w-5" />
-              </div>
-              <div>
-                <div className="text-xs uppercase tracking-wider text-[#4A4A4A]">Call</div>
-                <div className="font-data font-semibold text-lg">074 463 4514</div>
-              </div>
-            </a>
-
-            <a
-              href="https://wa.me/27744634514"
+              href="https://wa.me/27744634514?text=Hi%20Levah%2C%20I%27d%20like%20to%20hire%20a%20car"
               target="_blank"
               rel="noreferrer"
-              data-testid={CARHIRE.contactWhatsapp}
+              data-testid={CARHIRE.contactPhone}
               className="flex items-center gap-4 group"
             >
               <div className="h-12 w-12 rounded-xl bg-[#F2EBE1] border border-[#E5DCD0] grid place-items-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                 <MessageCircle className="h-5 w-5" />
               </div>
               <div>
-                <div className="text-xs uppercase tracking-wider text-[#4A4A4A]">WhatsApp</div>
-                <div className="font-data font-semibold text-lg">Chat with us</div>
+                <div className="text-xs uppercase tracking-wider text-[#4A4A4A]">WhatsApp / Call</div>
+                <div className="font-data font-semibold text-lg flex items-center gap-2">
+                  074 463 4514
+                  <span className="text-[10px] uppercase tracking-wider bg-[#25D366]/15 text-[#1eb858] rounded-full px-2 py-0.5 font-semibold">
+                    Tap to chat
+                  </span>
+                </div>
               </div>
             </a>
 

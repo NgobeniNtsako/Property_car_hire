@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Star, ShieldCheck } from "lucide-react";
+import { ArrowRight, MessageCircle, Star, ShieldCheck } from "lucide-react";
 import { CARHIRE } from "@/constants/testIds";
 
 const HERO_IMG = "https://images.pexels.com/photos/16975390/pexels-photo-16975390.jpeg";
@@ -41,13 +41,18 @@ export default function Hero({ onBook }) {
             >
               Get instant quote <ArrowRight className="ml-1.5 h-4 w-4" />
             </Button>
-            <a href="tel:+27744634514" className="contents">
+            <a
+              href="https://wa.me/27744634514?text=Hi%20Levah%2C%20I%27d%20like%20to%20hire%20a%20car"
+              target="_blank"
+              rel="noreferrer"
+              className="contents"
+            >
               <Button
                 data-testid={CARHIRE.heroCtaCall}
                 variant="outline"
-                className="rounded-full border-[#1A1A1A] text-[#1A1A1A] bg-transparent hover:bg-[#1A1A1A] hover:text-[#F9F6F0] h-12 px-6 text-base transition-all"
+                className="rounded-full border-[#1A1A1A] text-[#1A1A1A] bg-transparent hover:bg-[#25D366] hover:text-white hover:border-[#25D366] h-12 px-6 text-base transition-all"
               >
-                <Phone className="mr-1.5 h-4 w-4" /> 074 463 4514
+                <MessageCircle className="mr-1.5 h-4 w-4" /> WhatsApp 074 463 4514
               </Button>
             </a>
           </div>

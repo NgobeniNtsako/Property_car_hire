@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CARHIRE } from "@/constants/testIds";
 
@@ -62,10 +62,12 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+27744634514"
-            className="text-sm font-data font-semibold text-[#1A1A1A] hover:text-[#B65F33] transition-colors flex items-center gap-1.5"
+            href="https://wa.me/27744634514?text=Hi%20Levah%2C%20I%27d%20like%20to%20hire%20a%20car"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-data font-semibold text-[#1A1A1A] hover:text-[#25D366] transition-colors flex items-center gap-1.5"
           >
-            <Phone className="h-4 w-4" /> 074 463 4514
+            <MessageCircle className="h-4 w-4 text-[#25D366]" /> 074 463 4514
           </a>
           <Button
             data-testid={CARHIRE.navBookNow}

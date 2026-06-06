@@ -1,3 +1,4 @@
+import { MessageCircle } from "lucide-react";
 import { CARHIRE } from "@/constants/testIds";
 
 export default function Footer() {
@@ -34,8 +35,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <div className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold mb-3">Contact</div>
             <ul className="space-y-2 text-sm font-data">
-              <li><a href="tel:+27744634514" className="hover:text-[#D4AF37]">Call: 074 463 4514</a></li>
-              <li><a href="https://wa.me/27744634514" target="_blank" rel="noreferrer" className="hover:text-[#D4AF37]">WhatsApp: 074 463 4514</a></li>
+              <li><a href="https://wa.me/27744634514?text=Hi%20Levah%2C%20I%27d%20like%20to%20hire%20a%20car" target="_blank" rel="noreferrer" className="hover:text-[#D4AF37] inline-flex items-center gap-1.5"><MessageCircle className="h-3.5 w-3.5 text-[#25D366]" /> WhatsApp: 074 463 4514</a></li>
               <li><a href="mailto:levah.shibambu@gmail.com" className="hover:text-[#D4AF37]">levah.shibambu@gmail.com</a></li>
               <li className="text-[#F9F6F0]/60">Reg: 2013/15052/07</li>
             </ul>
