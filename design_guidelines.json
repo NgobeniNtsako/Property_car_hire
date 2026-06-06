@@ -1,0 +1,134 @@
+{
+  "theme_and_archetype": {
+    "name": "African Earthy Luxury",
+    "theme": "Light",
+    "description": "Warm, locally rooted, premium feel using earthy ochres, deep clays, savanna golds, charcoal, and cream. Balances trusted local business with high-end presentation."
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cabinet Grotesk",
+      "weights": ["700", "800", "900"],
+      "usage_rules": "Use for H1, H2, H3. Ensure tracking-tight for H1 and H2. No generic sans-serif for headings."
+    },
+    "body": {
+      "font_family": "Outfit",
+      "weights": ["300", "400", "500"],
+      "usage_rules": "Use for standard paragraphs and descriptions."
+    },
+    "data_and_forms": {
+      "font_family": "Manrope",
+      "weights": ["500", "600"],
+      "usage_rules": "Use for pricing numbers, phone numbers, and form inputs for crisp legibility."
+    }
+  },
+  "color_palette": {
+    "background": "#F9F6F0",
+    "surface": "#FFFFFF",
+    "surface_secondary": "#F2EBE1",
+    "primary": "#B65F33",
+    "primary_hover": "#9E4F28",
+    "secondary": "#D4AF37",
+    "text_primary": "#1A1A1A",
+    "text_secondary": "#4A4A4A",
+    "border": "#E5DCD0",
+    "error": "#D94A4A",
+    "success": "#3D7A5D"
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-20 md:py-32",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+    "border_radius": "rounded-xl or rounded-2xl",
+    "shadows": "shadow-sm for resting state, shadow-xl for hover on cards"
+  },
+  "components": {
+    "buttons": "Flat solid background with primary color. rounded-full or rounded-xl. Hover state darkens primary. Add slight translate-y on hover.",
+    "cards": "Surface background (#FFFFFF) with subtle border (#E5DCD0). Generous padding (p-6 or p-8).",
+    "hero": "Overlap layout or bento hero. Image should be highly visible, max black/overlay opacity of bg-black/30.",
+    "inputs": "Shadcn UI inputs heavily styled to match African Earthy Luxury. Use #FFFFFF bg, #E5DCD0 border, focus ring with primary color.",
+    "floating_whatsapp": "Fixed bottom right, z-50, shadow-2xl. Match primary color or use standard WhatsApp green."
+  },
+  "motion_and_interactions": {
+    "hover_states": "All cards and buttons must have transition-all duration-300 ease-in-out.",
+    "entrance": "Staggered fade-up for fleet grid and pricing details."
+  },
+  "image_urls": {
+    "hero": {
+      "url": "https://images.unsplash.com/photo-1772290617718-2a0908ff0f35",
+      "description": "View from inside a safari vehicle overlooking savanna - Warm, atmospheric hero image"
+    },
+    "hero_alternative": {
+      "url": "https://images.pexels.com/photos/16975390/pexels-photo-16975390.jpeg",
+      "description": "White SUV on a rural highway during sunset"
+    },
+    "sedans": [
+      {
+        "url": "https://images.unsplash.com/photo-1725781535651-e98bbd956179",
+        "name": "Toyota Rumion / Polo Vivo"
+      },
+      {
+        "url": "https://images.pexels.com/photos/28836714/pexels-photo-28836714.jpeg",
+        "name": "Toyota Etios / Corolla Quest"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1766289004244-99a44544305c",
+        "name": "Kia Rio / Suzuki Swift"
+      }
+    ],
+    "suvs": [
+      {
+        "url": "https://images.unsplash.com/photo-1469423910081-3488183dd77e",
+        "name": "Ford Kuga / Toyota RAV4"
+      },
+      {
+        "url": "https://images.pexels.com/photos/20733767/pexels-photo-20733767.jpeg",
+        "name": "Mercedes-Benz V-Class"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1564188537512-f6bd010d1e2a",
+        "name": "Haval GT"
+      }
+    ],
+    "booking_section": {
+      "url": "https://images.unsplash.com/photo-1533558701576-23c65e0272fb",
+      "description": "Person holding car keys - use for booking call to action or deposit information section"
+    }
+  },
+  "functional_requirements": {
+    "pricing_logic": {
+      "weekday": "R499 per day (Mon - Fri)",
+      "weekend": "R3000 flat package (Friday to Monday 10am)",
+      "deposit": "R1000 refundable"
+    },
+    "rules": [
+      "Fuel: Full tank out - full tank in",
+      "Speed limit 120",
+      "Only hirer may drive",
+      "Vehicle not allowed to leave province without notification",
+      "R150/hr late return charge",
+      "24/7 monitoring via tracker and dashcam"
+    ],
+    "contact_info": {
+      "phone": "0744634514",
+      "email": "levah.shibambu@gmail.com",
+      "location": "Giyani - Xikukwani village, South Africa",
+      "registration": "2013/15052/07"
+    },
+    "seo": {
+      "title": "Property Driving School Car Hire | Giyani Xikukwani",
+      "keywords": "car hire giyani, car rental giyani, xikukwani car hire, property driving school car hire, suv rental limpopo",
+      "description": "Premium and reliable car hire in Giyani, Xikukwani village. Book sedans and SUVs starting from R499/day. Weekend packages available."
+    },
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Ensure all fonts are imported appropriately via Google Fonts or standard imports. Replace 'Inter' everywhere.",
+    "Use Lucide-React or Phosphor Icons for the UI elements.",
+    "Implement a hybrid booking form using Shadcn's Form, Input, DatePicker, and Select components.",
+    "The instant quote calculation must accurately reflect the complex pricing logic (weekday vs weekend).",
+    "Submit the final booking form data to the backend endpoint which will dispatch an email to levah.shibambu@gmail.com using Resend.",
+    "Ensure the hero headline has strong SEO weight for 'car hire Giyani'.",
+    "Make the WhatsApp button prominent but elegant, floating at the bottom right.",
+    "Apply all UI components in standard .js/.jsx files (no TypeScript)."
+  ]
+}
