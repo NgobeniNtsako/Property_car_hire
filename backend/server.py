@@ -5,7 +5,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import asyncio
 import logging
-import resend
+import httpx
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
@@ -21,14 +21,10 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Resend setup
-RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
-SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+# Email forwarding via FormSubmit.co (no API key needed)
 OWNER_EMAIL = os.environ.get('OWNER_EMAIL', 'levah.shibambu@gmail.com')
 OWNER_PHONE = os.environ.get('OWNER_PHONE', '0744634514')
-
-if RESEND_API_KEY:
-    resend.api_key = RESEND_API_KEY
+FORMSUBMIT_URL = f"https://formsubmit.co/ajax/{OWNER_EMAIL}"
 
 # Configure logging
 logging.basicConfig(
@@ -179,23 +175,47 @@ def render_booking_email(b: Booking) -> str:
 
 
 async def send_booking_email(b: Booking) -> bool:
-    if not RESEND_API_KEY:
-        logger.warning("RESEND_API_KEY not set — skipping email send for booking %s", b.id)
-        return False
+    """Send the booking notification via FormSubmit.co (no API key required).
 
-    params = {
-        "from": SENDER_EMAIL,
-        "to": [OWNER_EMAIL],
-        "reply_to": b.email,
-        "subject": f"New car hire request — {b.full_name} — {b.car_name}",
-        "html": render_booking_email(b),
+    FormSubmit will send a one-time activation email to OWNER_EMAIL on first use.
+    Once the owner clicks the activation link, every subsequent POST is forwarded.
+    """
+    q = b.quote
+    payload = {
+        "_subject": f"New car hire request — {b.full_name} — {b.car_name}",
+        "_template": "table",
+        "_captcha": "false",
+        "_replyto": b.email,
+        "Booking ID": b.id,
+        "Customer Name": b.full_name,
+        "Customer Phone": b.phone,
+        "Customer Email": b.email,
+        "Car": b.car_name,
+        "Pickup Date": b.pickup_date,
+        "Return Date": b.return_date,
+        "Days": str(q.get("days", "")),
+        "Quote Breakdown": q.get("breakdown", ""),
+        "Rental Cost": f"R{q.get('rental_cost', 0)}",
+        "Refundable Deposit": f"R{q.get('deposit', 0)}",
+        "Total Upfront": f"R{q.get('total_upfront', 0)}",
+        "Weekend Package": "Yes" if q.get("is_weekend_package") else "No",
+        "Customer Notes": b.notes or "—",
+        "Submitted At": b.created_at,
     }
     try:
-        result = await asyncio.to_thread(resend.Emails.send, params)
-        logger.info("Resend email sent id=%s booking=%s", result.get("id"), b.id)
-        return True
+        async with httpx.AsyncClient(timeout=15.0) as http:
+            r = await http.post(
+                FORMSUBMIT_URL,
+                json=payload,
+                headers={"Content-Type": "application/json", "Accept": "application/json"},
+            )
+        if r.status_code >= 200 and r.status_code < 300:
+            logger.info("FormSubmit accepted booking %s (status %s)", b.id, r.status_code)
+            return True
+        logger.error("FormSubmit failed booking %s: %s %s", b.id, r.status_code, r.text[:200])
+        return False
     except Exception as e:
-        logger.error("Resend send failed for booking %s: %s", b.id, e)
+        logger.error("FormSubmit error for booking %s: %s", b.id, e)
         return False
 
 
@@ -209,7 +229,8 @@ async def root():
 async def health():
     return {
         "status": "ok",
-        "email_configured": bool(RESEND_API_KEY),
+        "email_provider": "formsubmit.co",
+        "owner_email": OWNER_EMAIL,
         "time": datetime.now(timezone.utc).isoformat(),
     }
 
