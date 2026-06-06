@@ -63,6 +63,30 @@ export default function Contact() {
               </div>
             </div>
           </div>
+
+          {/* QR — Save contact / open WhatsApp */}
+          <div
+            data-testid="contact-qr-card"
+            className="mt-8 rounded-2xl border border-[#E5DCD0] bg-white p-5 shadow-sm flex items-center gap-5"
+          >
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&color=1A1A1A&bgcolor=FFFFFF&data=${encodeURIComponent(
+                "BEGIN:VCARD\nVERSION:3.0\nFN:Property Driving School Car Hire\nORG:Property Driving School Car Hire\nTEL;TYPE=CELL,VOICE:+27744634514\nEMAIL:levah.shibambu@gmail.com\nADR;TYPE=WORK:;;Xikukwani Village;Giyani;Limpopo;;South Africa\nURL:https://wa.me/27744634514\nEND:VCARD"
+              )}`}
+              alt="Scan to save Property Driving School Car Hire contact"
+              className="h-28 w-28 rounded-lg border border-[#E5DCD0] bg-white shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-[#B65F33] font-semibold mb-1">
+                Save us · 1 tap
+              </div>
+              <div className="font-display text-xl leading-tight">Scan to save our contact</div>
+              <p className="text-sm text-[#4A4A4A] mt-1">
+                Point your camera. Saves Levah's number, email &amp; WhatsApp directly to your phone.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-7">
