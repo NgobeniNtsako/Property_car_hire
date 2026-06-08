@@ -31,6 +31,7 @@ export default function BookingForm({ prefillCarId }) {
   const [successId, setSuccessId] = useState(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (prefillCarId) setCarId(prefillCarId);
   }, [prefillCarId]);
 
@@ -84,23 +85,23 @@ export default function BookingForm({ prefillCarId }) {
 
   return (
     <section id="booking" data-testid={CARHIRE.bookingSection} className="py-20 md:py-28 relative">
-      <div className="absolute top-20 right-0 w-80 h-80 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-0 w-80 h-80 bg-[#84CC16]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
-          <div className="text-xs uppercase tracking-[0.22em] text-[#B65F33] font-semibold mb-3">
+          <div className="text-xs uppercase tracking-[0.22em] text-[#0B0B0B] font-semibold mb-3">
             Get a quote · Book a car
           </div>
           <h2 className="font-display text-4xl md:text-5xl tracking-tight">
-            Tell us your trip. <span className="italic text-[#B65F33]">Get your price.</span>
+            Tell us your trip. <span className="italic text-[#84CC16] [text-shadow:0_1px_0_#0B0B0B]">Get your price.</span>
           </h2>
           <p className="mt-4 text-[#4A4A4A] max-w-md">
-            Pick your car and dates — we'll calculate your quote instantly. Submit the form
+            Pick your car and dates — we&rsquo;ll calculate your quote instantly. Submit the form
             and Levah will confirm directly with you on call or WhatsApp.
           </p>
 
-          <div className="mt-8 rounded-2xl bg-white border border-[#E5DCD0] shadow-sm p-6 md:p-7">
+          <div className="mt-8 rounded-2xl bg-white border border-[#E7E2D8] shadow-sm p-6 md:p-7">
             <div className="text-xs uppercase tracking-[0.18em] text-[#4A4A4A] mb-3">
-              <Sparkles className="inline h-3.5 w-3.5 text-[#D4AF37] mr-1" />
+              <Sparkles className="inline h-3.5 w-3.5 text-[#84CC16] mr-1" />
               Your instant quote
             </div>
             {!quote ? (
@@ -120,7 +121,7 @@ export default function BookingForm({ prefillCarId }) {
                   <Row label="Total to bring" value={formatZAR(quote.total_upfront)} bold />
                 </div>
                 {quote.is_weekend_package && (
-                  <div className="mt-4 rounded-lg bg-[#F2EBE1] border border-[#E5DCD0] px-3 py-2 text-xs text-[#9E4F28]">
+                  <div className="mt-4 rounded-lg bg-[#EFEAE0] border border-[#E7E2D8] px-3 py-2 text-xs text-[#1F1F1F]">
                     Weekend package auto-applied — best price for Fri→Mon trips.
                   </div>
                 )}
@@ -135,7 +136,7 @@ export default function BookingForm({ prefillCarId }) {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl bg-white border border-[#E5DCD0] shadow-sm p-6 md:p-8 space-y-5"
+              className="rounded-2xl bg-white border border-[#E7E2D8] shadow-sm p-6 md:p-8 space-y-5"
             >
               {/* Car */}
               <div>
@@ -143,7 +144,7 @@ export default function BookingForm({ prefillCarId }) {
                 <Select value={carId} onValueChange={setCarId}>
                   <SelectTrigger
                     data-testid={CARHIRE.bookingCarSelect}
-                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E5DCD0] font-data"
+                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E7E2D8] font-data"
                   >
                     <SelectValue placeholder="Select a vehicle…" />
                   </SelectTrigger>
@@ -194,7 +195,7 @@ export default function BookingForm({ prefillCarId }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="As on your driver's licence"
-                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E5DCD0] font-data"
+                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E7E2D8] font-data"
                   />
                 </div>
                 <div>
@@ -205,7 +206,7 @@ export default function BookingForm({ prefillCarId }) {
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 082 123 4567"
                     inputMode="tel"
-                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E5DCD0] font-data"
+                    className="mt-1.5 h-12 rounded-xl bg-white border-[#E7E2D8] font-data"
                   />
                 </div>
               </div>
@@ -218,7 +219,7 @@ export default function BookingForm({ prefillCarId }) {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   type="email"
-                  className="mt-1.5 h-12 rounded-xl bg-white border-[#E5DCD0] font-data"
+                  className="mt-1.5 h-12 rounded-xl bg-white border-[#E7E2D8] font-data"
                 />
               </div>
 
@@ -229,7 +230,7 @@ export default function BookingForm({ prefillCarId }) {
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Anything we should know? e.g. pickup time, destination, special requests."
-                  className="mt-1.5 rounded-xl bg-white border-[#E5DCD0] min-h-[100px]"
+                  className="mt-1.5 rounded-xl bg-white border-[#E7E2D8] min-h-[100px]"
                 />
               </div>
 
@@ -237,7 +238,7 @@ export default function BookingForm({ prefillCarId }) {
                 type="submit"
                 data-testid={CARHIRE.bookingSubmit}
                 disabled={!canSubmit || submitting}
-                className="w-full h-13 py-4 rounded-full bg-[#B65F33] hover:bg-[#9E4F28] text-[#F9F6F0] text-base shadow-md disabled:opacity-50 disabled:hover:translate-y-0 hover:-translate-y-0.5 transition-all"
+                className="w-full h-13 py-4 rounded-full bg-[#0B0B0B] hover:bg-[#1F1F1F] text-[#F5F2EA] text-base shadow-md disabled:opacity-50 disabled:hover:translate-y-0 hover:-translate-y-0.5 transition-all"
               >
                 {submitting ? (
                   <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Sending request…</>
@@ -260,7 +261,7 @@ function Row({ label, value, bold }) {
   return (
     <div className="flex items-center justify-between">
       <span className={bold ? "font-semibold" : "text-[#4A4A4A]"}>{label}</span>
-      <span className={bold ? "font-bold text-[#B65F33]" : "text-[#1A1A1A]"}>{value}</span>
+      <span className={bold ? "font-bold text-[#0B0B0B]" : "text-[#1A1A1A]"}>{value}</span>
     </div>
   );
 }
@@ -276,15 +277,15 @@ function DatePickerField({ label, date, onChange, disabledBefore, testId }) {
             type="button"
             data-testid={testId}
             variant="outline"
-            className={`mt-1.5 w-full h-12 justify-start rounded-xl bg-white border-[#E5DCD0] font-data text-left ${
+            className={`mt-1.5 w-full h-12 justify-start rounded-xl bg-white border-[#E7E2D8] font-data text-left ${
               !date ? "text-[#4A4A4A]" : "text-[#1A1A1A]"
             }`}
           >
-            <CalIcon className="mr-2 h-4 w-4 text-[#B65F33]" />
+            <CalIcon className="mr-2 h-4 w-4 text-[#0B0B0B]" />
             {date ? format(date, "EEE, dd MMM yyyy") : "Pick a date"}
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="w-auto p-0 bg-white border-[#E5DCD0]">
+        <PopoverContent align="start" className="w-auto p-0 bg-white border-[#E7E2D8]">
           <Calendar
             mode="single"
             selected={date}
@@ -309,10 +310,10 @@ function SuccessCard({ id, onReset }) {
       </div>
       <h3 className="font-display text-3xl mt-5">Booking request received</h3>
       <p className="text-[#4A4A4A] mt-3 max-w-md mx-auto">
-        Thanks! Levah from Property Driving School has been notified. You'll get a call or
+        Thanks! Levah from Property Car Hire has been notified. You&rsquo;ll get a call or
         WhatsApp on your number within a few hours to confirm.
       </p>
-      <div className="mt-4 inline-block rounded-full bg-[#F2EBE1] px-4 py-1.5 font-data text-sm">
+      <div className="mt-4 inline-block rounded-full bg-[#EFEAE0] px-4 py-1.5 font-data text-sm">
         Ref: <span className="font-semibold">{id.slice(0, 8).toUpperCase()}</span>
       </div>
       <div className="mt-6 flex flex-wrap justify-center gap-3">

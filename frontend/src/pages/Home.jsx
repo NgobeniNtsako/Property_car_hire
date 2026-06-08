@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Hero from "@/components/site/Hero";
 import Trust from "@/components/site/Trust";
 import Fleet from "@/components/site/Fleet";
+import Gallery from "@/components/site/Gallery";
 import Pricing from "@/components/site/Pricing";
 import BookingForm from "@/components/site/BookingForm";
 import Rules from "@/components/site/Rules";
@@ -20,8 +21,8 @@ export default function Home() {
     ld.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "AutoRental",
-      "name": "Property Driving School Car Hire",
-      "image": "https://images.unsplash.com/photo-1772290617718-2a0908ff0f35",
+      "name": "Property Car Hire",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
       "@id": "https://propertycarhire.co.za",
       "telephone": "+27744634514",
       "email": "levah.shibambu@gmail.com",
@@ -50,12 +51,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F9F6F0] text-[#1A1A1A]">
+    <div className="min-h-screen bg-[#F5F2EA] text-[#1A1A1A]">
       <Navbar />
       <main>
         <Hero onBook={() => handleBookCar(null)} />
         <Trust />
         <Fleet onBookCar={handleBookCar} />
+        <Gallery />
         <Pricing />
         <BookingForm prefillCarId={prefillCarId} />
         <Rules />

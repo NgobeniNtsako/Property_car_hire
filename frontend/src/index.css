@@ -9,14 +9,15 @@
   --font-body: "Outfit", system-ui, sans-serif;
   --font-data: "Manrope", system-ui, sans-serif;
 
-  --clay: #B65F33;
-  --clay-dark: #9E4F28;
-  --gold: #D4AF37;
-  --cream: #F9F6F0;
-  --sand: #F2EBE1;
+  --ink: #0B0B0B;
+  --ink-hover: #1F1F1F;
+  --lime: #84CC16;
+  --lime-bright: #A3E635;
+  --cream: #F5F2EA;
+  --sand: #EFEAE0;
   --charcoal: #1A1A1A;
   --slate: #4A4A4A;
-  --border-warm: #E5DCD0;
+  --border-warm: #E7E2D8;
 }
 
 html, body {
@@ -49,19 +50,19 @@ h1, h2, h3, h4, .font-display {
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 19 56% 45%;
-    --primary-foreground: 38 35% 96%;
+    --primary: 0 0% 4%;
+    --primary-foreground: 60 20% 95%;
     --secondary: 36 39% 91%;
     --secondary-foreground: 0 0% 10%;
     --muted: 36 39% 91%;
     --muted-foreground: 0 0% 29%;
-    --accent: 45 65% 52%;
+    --accent: 78 76% 44%;
     --accent-foreground: 0 0% 10%;
     --destructive: 0 65% 56%;
     --destructive-foreground: 0 0% 100%;
-    --border: 33 31% 86%;
-    --input: 33 31% 86%;
-    --ring: 19 56% 45%;
+    --border: 33 19% 86%;
+    --input: 33 19% 86%;
+    --ring: 0 0% 4%;
     --radius: 0.75rem;
   }
 }

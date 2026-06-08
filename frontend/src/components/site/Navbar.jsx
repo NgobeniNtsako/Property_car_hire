@@ -28,23 +28,21 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-[#F9F6F0]/90 backdrop-blur-lg border-b border-[#E5DCD0]" : "bg-transparent"
+        scrolled ? "bg-[#F5F2EA]/90 backdrop-blur-lg border-b border-[#E7E2D8]" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
         <a
           href="#top"
           data-testid={CARHIRE.navLogo}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-3 group"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
         >
-          <div className="h-9 w-9 rounded-full bg-[#B65F33] grid place-items-center text-[#F9F6F0] font-display text-lg shadow-sm">
-            P
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-[15px] md:text-base">Property Driving School</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-[#B65F33]">Car Hire · Giyani</div>
-          </div>
+          <img
+            src="/logo.png"
+            alt="Property Car Hire logo"
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -53,7 +51,7 @@ export default function Navbar() {
               key={l.id}
               data-testid={l.testId}
               onClick={() => go(l.id)}
-              className="text-sm font-medium text-[#1A1A1A]/80 hover:text-[#B65F33] transition-colors"
+              className="text-sm font-medium text-[#1A1A1A]/80 hover:text-[#0B0B0B] transition-colors"
             >
               {l.label}
             </button>
@@ -72,7 +70,7 @@ export default function Navbar() {
           <Button
             data-testid={CARHIRE.navBookNow}
             onClick={() => go("booking")}
-            className="rounded-full bg-[#B65F33] hover:bg-[#9E4F28] text-[#F9F6F0] px-5 shadow-sm hover:-translate-y-0.5 transition-all"
+            className="rounded-full bg-[#0B0B0B] hover:bg-[#1F1F1F] text-[#F5F2EA] px-5 shadow-sm hover:-translate-y-0.5 transition-all"
           >
             Book Now
           </Button>
@@ -80,7 +78,7 @@ export default function Navbar() {
 
         <button
           aria-label="Open menu"
-          className="md:hidden p-2 rounded-lg hover:bg-[#F2EBE1]"
+          className="md:hidden p-2 rounded-lg hover:bg-[#EFEAE0]"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -88,7 +86,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#F9F6F0] border-t border-[#E5DCD0] px-4 py-4 space-y-2">
+        <div className="md:hidden bg-[#F5F2EA] border-t border-[#E7E2D8] px-4 py-4 space-y-2">
           {links.map((l) => (
             <button
               key={l.id}
@@ -101,7 +99,7 @@ export default function Navbar() {
           ))}
           <Button
             onClick={() => go("booking")}
-            className="w-full mt-2 rounded-full bg-[#B65F33] hover:bg-[#9E4F28] text-[#F9F6F0]"
+            className="w-full mt-2 rounded-full bg-[#0B0B0B] hover:bg-[#1F1F1F] text-[#F5F2EA]"
           >
             Book Now
           </Button>

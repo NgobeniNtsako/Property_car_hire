@@ -13,7 +13,7 @@ export default function Fleet({ onBookCar }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <div className="text-xs uppercase tracking-[0.22em] text-[#B65F33] font-semibold mb-3">
+            <div className="text-xs uppercase tracking-[0.22em] text-[#0B0B0B] font-semibold mb-3">
               Our Fleet
             </div>
             <h2 className="font-display text-4xl md:text-5xl tracking-tight max-w-2xl">
@@ -27,18 +27,18 @@ export default function Fleet({ onBookCar }) {
         </div>
 
         <Tabs value={tab} onValueChange={setTab} className="w-full">
-          <TabsList className="bg-[#F2EBE1] border border-[#E5DCD0] rounded-full p-1 h-12">
+          <TabsList className="bg-[#EFEAE0] border border-[#E7E2D8] rounded-full p-1 h-12">
             <TabsTrigger
               data-testid={CARHIRE.fleetTabSedans}
               value="sedans"
-              className="rounded-full px-6 h-10 data-[state=active]:bg-[#B65F33] data-[state=active]:text-[#F9F6F0]"
+              className="rounded-full px-6 h-10 data-[state=active]:bg-[#0B0B0B] data-[state=active]:text-[#F5F2EA]"
             >
               Sedans &amp; Hatchbacks · {SEDANS.length}
             </TabsTrigger>
             <TabsTrigger
               data-testid={CARHIRE.fleetTabSuvs}
               value="suvs"
-              className="rounded-full px-6 h-10 data-[state=active]:bg-[#B65F33] data-[state=active]:text-[#F9F6F0]"
+              className="rounded-full px-6 h-10 data-[state=active]:bg-[#0B0B0B] data-[state=active]:text-[#F5F2EA]"
             >
               SUVs · {SUVS.length}
             </TabsTrigger>
@@ -63,17 +63,17 @@ function CarGrid({ cars, onBookCar }) {
         <article
           key={car.id}
           data-testid={CARHIRE.carCard(car.id)}
-          className="group rounded-2xl bg-white border border-[#E5DCD0] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-up"
+          className="group rounded-2xl bg-white border border-[#E7E2D8] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-up"
           style={{ animationDelay: `${i * 60}ms` }}
         >
-          <div className="relative h-52 overflow-hidden bg-[#F2EBE1]">
+          <div className="relative h-52 overflow-hidden bg-[#EFEAE0]">
             <img
               src={car.image}
               alt={car.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
             />
-            <div className="absolute top-3 left-3 rounded-full bg-[#1A1A1A]/85 backdrop-blur text-[#F9F6F0] px-3 py-1 text-[10px] uppercase tracking-wider">
+            <div className="absolute top-3 left-3 rounded-full bg-[#1A1A1A]/85 backdrop-blur text-[#F5F2EA] px-3 py-1 text-[10px] uppercase tracking-wider">
               {car.tag}
             </div>
           </div>
@@ -83,7 +83,7 @@ function CarGrid({ cars, onBookCar }) {
               <h3 className="font-display text-2xl leading-tight">{car.name}</h3>
               <div className="text-right shrink-0">
                 <div className="text-[10px] uppercase tracking-wider text-[#4A4A4A]">from</div>
-                <div className="font-data font-bold text-lg text-[#B65F33]">R499<span className="text-xs text-[#4A4A4A]">/day</span></div>
+                <div className="font-data font-bold text-lg text-[#0B0B0B]">R499<span className="text-xs text-[#4A4A4A]">/day</span></div>
               </div>
             </div>
 
@@ -97,7 +97,7 @@ function CarGrid({ cars, onBookCar }) {
               data-testid={CARHIRE.carCardBookBtn(car.id)}
               onClick={() => onBookCar(car.id)}
               variant="outline"
-              className="mt-5 w-full rounded-full border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F9F6F0] h-11 transition-all group/btn"
+              className="mt-5 w-full rounded-full border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F5F2EA] h-11 transition-all group/btn"
             >
               Book this car <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover/btn:translate-x-0.5" />
             </Button>
