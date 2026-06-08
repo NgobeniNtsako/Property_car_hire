@@ -31,7 +31,6 @@ export default function BookingForm({ prefillCarId }) {
   const [successId, setSuccessId] = useState(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (prefillCarId) setCarId(prefillCarId);
   }, [prefillCarId]);
 
