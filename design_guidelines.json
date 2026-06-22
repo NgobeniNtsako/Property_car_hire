@@ -58,20 +58,20 @@
       "description": "View from inside a safari vehicle overlooking savanna - Warm, atmospheric hero image"
     },
     "hero_alternative": {
-      "url": "https://images.pexels.com/photos/16975390/pexels-photo-16975390.jpeg",
+      "url": "/images/suzuki_Ertiga.png",
       "description": "White SUV on a rural highway during sunset"
     },
     "sedans": [
       {
-        "url": "https://images.unsplash.com/photo-1725781535651-e98bbd956179",
+        "url": "/images/toyota_Rumion.png",
         "name": "Toyota Rumion / Polo Vivo"
       },
       {
-        "url": "https://images.pexels.com/photos/28836714/pexels-photo-28836714.jpeg",
+        "url": "/images/toyota_Rumion.png",
         "name": "Toyota Etios / Corolla Quest"
       },
       {
-        "url": "https://images.unsplash.com/photo-1766289004244-99a44544305c",
+        "url": "/images/toyota_Rumion.png",
         "name": "Kia Rio / Suzuki Swift"
       }
     ],

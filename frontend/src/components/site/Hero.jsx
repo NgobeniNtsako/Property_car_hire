@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Star, ShieldCheck } from "lucide-react";
 import { CARHIRE } from "@/constants/testIds";
 
-const HERO_IMG = "https://images.pexels.com/photos/16975390/pexels-photo-16975390.jpeg";
+const HERO_IMG = "/images/pch_hero.png";
 
 export default function Hero({ onBook }) {
   return (
