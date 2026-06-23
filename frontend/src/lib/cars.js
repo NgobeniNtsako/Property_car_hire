@@ -9,6 +9,10 @@ export const nissan_almera= "/images/nissan_almera.png";
 export const suzuki_ertiga = "/images/suzuki_Ertiga.png";
 export const suzuki_swift= "/images/suzuki_swift.png";
 export const suzuki_celerio = "/images/suzuki_celeroi.png";
+export const ford_kuga = "/images/ford_kuga.png";
+export const toyota_rav4 = "/images/toyota_rev4.png";
+export const v_class = "/images/v_class.png";
+export const haval_gt = "/images/haval.png";
 
 
 export const CARS = [
@@ -25,10 +29,10 @@ export const CARS = [
   { id: "suzuki-celerio", name: "Suzuki Celerio", category: "sedan", seats: 5, transmission: "Manual", fuel: "Petrol", image: suzuki_celerio, tag: "Economy" },
 
   // SUVs
-  { id: "ford-kuga", name: "Ford Kuga", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: toyota_rumion, tag: "Adventure Ready" },
-  { id: "toyota-rav4", name: "Toyota RAV4", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: toyota_rumion, tag: "All-Terrain" },
-  { id: "mercedes-v-class", name: "Mercedes-Benz V-Class", category: "suv", seats: 7, transmission: "Automatic", fuel: "Diesel", image: toyota_rumion, tag: "Luxury" },
-  { id: "haval-gt", name: "Haval GT", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: toyota_rumion, tag: "Modern" },
+  { id: "ford-kuga", name: "Ford Kuga", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: ford_kuga, tag: "Adventure Ready" },
+  { id: "toyota-rav4", name: "Toyota RAV4", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: toyota_rav4, tag: "All-Terrain" },
+  { id: "mercedes-v-class", name: "Mercedes-Benz V-Class", category: "suv", seats: 7, transmission: "Automatic", fuel: "Diesel", image: v_class, tag: "Luxury" },
+  { id: "haval-gt", name: "Haval GT", category: "suv", seats: 5, transmission: "Automatic", fuel: "Petrol", image: haval_gt, tag: "Modern" },
 ];
 
 export const SEDANS = CARS.filter((c) => c.category === "sedan");
